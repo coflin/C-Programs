@@ -61,11 +61,13 @@ void print_struct(item *it)//To print the structure containing the parameter of 
 void main()
 {
 	item *ptr;	//a pointer that will store the reference to the structure
-	char iname[30];		//user input for searching the element
-	printf("Enter the item you want to search: ");
+	char iname[30],fileinp[50];		//user input for searching the element and the file name
+	printf("Enter the file name you want to search the item in: /n");
+	scanf("%s",fileinp);
+	printf("Enter the item you want to search: /n");
 	scanf("%s",iname);	//storing the user input in iname
 	FILE *fp;		//Initializing a pointer variable to file
-	fp=fopen("item.dat","r");	//Open the file
+	fp=fopen(fileinp,"r");	//Open the file
 	int i=0;
 	ptr=find_item(fp,iname);	//ptr will store the result of the find_item function that returns the pointer to the structure user searched
 	print_struct(ptr);			//function that will print the details of the user input and ptr (pointer to the structure) as argument
